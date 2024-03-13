@@ -1,6 +1,6 @@
 /*
-  *Fibonacci*
-  function fibo(n) {    
+*Fibonacci*
+function fibo(n) {    
   const fib = [0,1];
   for(let i = 2; i<n ; i++){
     fib[i] = fib[i-1] + fib[i-2];
@@ -26,7 +26,7 @@ console.log(factorial(5));
 Big-O: O(n) - Linear
 
 
-//*Prime Number*
+*Prime Number*
 function isPrime(n){
   if(n < 2){
     return false;
@@ -58,4 +58,24 @@ console.log(isPrime(1));
 console.log(isPrime(4));
 console.log(isPrime(5));
 or Big-O: O(sqrt(n))
+
+*Power of 2*
+function isPowerOfTwo(n){
+  if(n < 1){
+    return false
+  }
+  for(let i = 0; i < n; i++){
+    if(n === Math.pow(2, i)){
+      return true
+    }
+  }
+  return false
+}
+
+console.log(isPowerOfTwo(1))
+console.log(isPowerOfTwo(2))
+console.log(isPowerOfTwo(5))
+console.log(isPowerOfTwo(8))
+
+Big-O: O(n) - Linear
 */
