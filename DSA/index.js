@@ -125,4 +125,28 @@ console.log(linearSearch([-5,2,10,4,6], 6))
 console.log(linearSearch([-5,2,10,4,6], 20))
 
 Big-O =  O(n)
+
+*Binary Search*
+
+function binarySearch(arr,t) {
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+  while(leftIndex <= rightIndex) {
+    middleIndex = Math.floor((leftIndex + rightIndex) / 2);
+    if(t === arr[middleIndex]){
+      return middleIndex;
+    }
+    if( t < arr[middleIndex]){
+      rightIndex = middleIndex - 1;
+    } else {
+      leftIndex = middleIndex + 1;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch([-5,2,4,6,10], 10))
+console.log(binarySearch([-5,2,4,6,10], 6))
+console.log(binarySearch([-5,2,4,6,10], 20))
+Big-O = O(logn)
 */
