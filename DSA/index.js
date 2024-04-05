@@ -151,8 +151,8 @@ console.log(binarySearch([-5,2,4,6,10], 20))
 Big-O = O(logn)
 
 *Recursive Binary Search*
-
-function recursiveBinarySearch(arr, target){
+*Method 1*
+function recursiveBinarySearch1(arr, target){
   if(arr.length === 0){
     return -1
   }
@@ -166,10 +166,48 @@ function recursiveBinarySearch(arr, target){
     return result === -1 ? -1 : mid + 1 + result
   }
 }
+*Method 2*
+function recursiveBinarySearch2(arr, target){
+  return search(arr, target, 0, arr.length - 1)
+}
 
-console.log(recursiveBinarySearch([-5,2,4,6,10], 10))
-console.log(recursiveBinarySearch([-5,2,4,6,10], 6))
-console.log(recursiveBinarySearch([-5,2,4,6,10], 20))
+function search(arr, target, left, right){
+  if(left > right){
+    return -1
+  }
+  let mid = Math.floor((left + right) / 2)
+  if(arr[mid] === target){
+    return mid
+  } else if(target < arr[mid]){
+    return search(arr, target, left, mid - 1)
+  } else {
+    return search(arr, target, mid + 1, right)
+  }
+}
+
+
+console.log(recursiveBinarySearch1([-5,2,4,6,10], 10))
+console.log(recursiveBinarySearch2([-5,2,4,6,10], 6))
+console.log(recursiveBinarySearch1([-5,2,4,6,10], 20))
 
 Big-O = O(logn)
+
+*Bubble Sort*
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort([8, 5, 2, 9, 5, 6, 3]));
+
+Big-O = O(n^2)
 */
