@@ -149,4 +149,27 @@ console.log(binarySearch([-5,2,4,6,10], 10))
 console.log(binarySearch([-5,2,4,6,10], 6))
 console.log(binarySearch([-5,2,4,6,10], 20))
 Big-O = O(logn)
+
+*Recursive Binary Search*
+
+function recursiveBinarySearch(arr, target){
+  if(arr.length === 0){
+    return -1
+  }
+  let mid = Math.floor(arr.length / 2)
+  if(arr[mid] === target){
+    return mid
+  } else if(target < arr[mid]){
+    return recursiveBinarySearch(arr.slice(0, mid), target)
+  } else {
+    let result = recursiveBinarySearch(arr.slice(mid + 1), target)
+    return result === -1 ? -1 : mid + 1 + result
+  }
+}
+
+console.log(recursiveBinarySearch([-5,2,4,6,10], 10))
+console.log(recursiveBinarySearch([-5,2,4,6,10], 6))
+console.log(recursiveBinarySearch([-5,2,4,6,10], 20))
+
+Big-O = O(logn)
 */
