@@ -193,7 +193,7 @@ console.log(recursiveBinarySearch1([-5,2,4,6,10], 20))
 Big-O = O(logn)
 
 *Bubble Sort*
-
+*Method 1*
 function bubbleSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - i - 1; j++) {
@@ -206,8 +206,44 @@ function bubbleSort(arr) {
   }
   return arr;
 }
-
 console.log(bubbleSort([8, 5, 2, 9, 5, 6, 3]));
+
+*Method 2*
+function bubbleSort2(arr) {
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while(swapped);
+  return arr;
+}
+
+console.log(bubbleSort2([8, 5, 2, 9, 5, 6, 3]));
+
+Big-O = O(n^2)
+
+
+function insertionSort(arr){
+  for(let i = 1; i < arr.length; i++){
+    let currentVal = arr[i];
+    let j = i - 1;
+    while(j >= 0 && arr[j] > currentVal){
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = currentVal;
+  }
+  return arr;
+}
+
+console.log(insertionSort([8, 5, 2, 9, 5, 6, 3]));
 
 Big-O = O(n^2)
 */
