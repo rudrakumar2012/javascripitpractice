@@ -269,4 +269,30 @@ console.log(quickSort([8, 5, 2, 9, 5, 6, 3]));
 
 Worst case(when the array is already sorted): Big-O = O(n^2)
 Avg case: Big-O = O(nlogn)
+
+*MergeSort*
+
+function mergeSort(arr){
+  if(arr.length <= 1) return arr
+  let mid = Math.floor(arr.length / 2)
+  let left = arr.slice(0, mid)
+  let right = arr.slice(mid)
+  return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(left, right){
+  let result = []
+  while(left.length && right.length){
+    if(left[0] < right[0]){
+      result.push(left.shift())
+    } else {
+      result.push(right.shift())
+    }
+  }
+  return [...result, ...left, ...right]
+}
+
+console.log(mergeSort([8, 5, 2, 9, 5, 6, 3]));
+
+Big-O = O(nlogn)
 */
