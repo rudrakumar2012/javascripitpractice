@@ -310,5 +310,19 @@ function cartesianProduct(arr1, arr2) {
 
 console.log(cartesianProduct([1, 2], [3, 4, 5]))
 
-Big-O = O(n^2)
+Big-O = O(n*m)
+
+*ClimbingStairs*
+
+function climbStairs(n) {
+  const noOfWays = [1,2]
+  for(let i = 2; i < n; i++){
+    noOfWays[i] = noOfWays[i-1] + noOfWays[i-2]
+  }
+  return noOfWays[n-1];
+}
+
+console.log(climbStairs(6))
+
+Big-O(Wrost Time Complexity): O(n) - Linear (because of 1 loop present in function)
 */
