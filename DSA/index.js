@@ -325,4 +325,20 @@ function climbStairs(n) {
 console.log(climbStairs(6))
 
 Big-O(Wrost Time Complexity): O(n) - Linear (because of 1 loop present in function)
+
+*TowerOfHanoi*
+
+function towerOfHanoi(n, from_rod, to_rod, aux_rod) {
+  if (n === 1) {
+    console.log(`Move disk 1 from rod ${from_rod} to rod ${to_rod}`);
+    return;
+  }
+  towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+  console.log(`Move disk ${n} from rod ${from_rod} to rod ${to_rod}`);
+  towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+}
+
+console.log(towerOfHanoi(3, "A", "C", "B"));
+
+Big-O(Wrost Time Complexity): O(2^n)
 */
