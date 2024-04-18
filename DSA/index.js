@@ -341,4 +341,67 @@ function towerOfHanoi(n, from_rod, to_rod, aux_rod) {
 console.log(towerOfHanoi(3, "A", "C", "B"));
 
 Big-O(Wrost Time Complexity): O(2^n)
+
+**Data Structure**
+Array
+Linked List
+Stack
+Queue
+Tree
+Graph
+Hash Table
+Set
+Map
+
+
+*Queue*
+
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    return this.items.shift();
+  }
+
+  front() {
+    return this.items[0];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  size() {
+    return this.items.length;
+  }
+
+  print() {
+    console.log(this.items.toString());
+  }
+}
+
+const myQueue = new Queue();
+
+myQueue.enqueue(1);
+myQueue.enqueue(2);
+myQueue.enqueue(3);
+myQueue.enqueue(4);
+
+myQueue.print(); // Output: 1,2,3,4
+
+myQueue.dequeue();
+myQueue.print(); // Output: 2,3,4
+
+console.log(myQueue.front()); // Output: 2
+
+console.log(myQueue.isEmpty()); // Output: false
+
+console.log(myQueue.size()); // Output: 3
+
 */
