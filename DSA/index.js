@@ -404,4 +404,60 @@ console.log(myQueue.isEmpty()); // Output: false
 
 console.log(myQueue.size()); // Output: 3
 
+**Optimized Queue**
+
+class Queue {
+  constructor() {
+    this.items = [];
+    this.front = 0;
+    this.rear = 0;
+  }
+
+  enqueue(element) {
+    this.items[this.rear] = element;
+    this.rear++;
+  }
+
+  dequeue() {
+    const item = this.items[this.front];
+    delete this.items[this.front];
+    this.front++;
+    return item;
+  }
+
+  peek() {
+    return this.items[this.front];
+  }
+
+  isEmpty() {
+    return this.rear - this.front === 0;
+  }
+
+  size() {
+    return this.rear - this.front;
+  }
+
+  print() {
+    console.log(this.items);
+  }
+}
+
+const myQueue = new Queue();
+
+myQueue.enqueue(1);
+myQueue.enqueue(2);
+myQueue.enqueue(3);
+myQueue.enqueue(4);
+
+myQueue.print(); // Output: [1, 2, 3, 4]
+
+myQueue.dequeue();
+myQueue.print(); // Output: [2, 3, 4] 
+
+console.log(myQueue.peek()); // Output: 2
+
+console.log(myQueue.isEmpty()); // Output: false
+
+console.log(myQueue.size()); // Output: 3
+
 */
