@@ -460,4 +460,92 @@ console.log(myQueue.isEmpty()); // Output: false
 
 console.log(myQueue.size()); // Output: 3
 
+**Circular Queue**
+
+class circularQueue {
+  constructor(size) {
+    this.items = new Array(size);
+    this.front = -1;
+    this.rear = -1;
+    this.size = size;
+    this.currentLength = 0;
+  }
+
+  isFull() {
+    return this.currentLength === this.size;
+  }
+
+  isEmpty() {
+    return this.currentLength === 0;
+  }
+
+  enqueue(element) {
+    if(!this.isFull()) {
+      this.rear = (this.rear + 1) % this.size;
+      this.items[this.rear] = element;
+      this.currentLength++;
+      if(this.front === -1) {
+        this.front = this.rear;
+      }
+    }
+  }
+
+  dequeue() {
+    if(this.isEmpty()) {
+      return null;
+    }
+    const item = this.items[this.front];
+    this.items[this.front] = null;
+    this.front = (this.front + 1) % this.size;
+    this.currentLength--;
+    if(this.isEmpty()) {
+      this.front = -1;
+      this.rear = -1;
+    }
+    return item;
+  }
+
+  peek() {
+    if(!this.isEmpty()) {
+      return null;
+    }
+    return this.items[this.front];
+  }
+
+  print() {
+    if(this.isEmpty()) {
+      console.log("Queue is empty");
+    } else {
+      let i
+      let str = ''
+      for(i = this.front; i != this.rear; i = (i + 1) % this.size) {
+        str += this.items[i] + ' ';
+      }
+      str += this.items[i];
+      console.log(str);
+    }
+  }
+}
+
+const queue = new circularQueue(5);
+
+console.log(queue.isEmpty());
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(40);
+queue.enqueue(50);
+
+console.log(queue.isFull());
+
+queue.print();
+
+console.log(queue.dequeue());
+console.log(queue.peek());
+queue.print();
+
+queue.enqueue(60);
+queue.print();
+
 */
